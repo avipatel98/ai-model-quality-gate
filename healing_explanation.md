@@ -1,0 +1,3 @@
+# Self-Healing Explanation
+
+The self-healing test stores the expected prediction response shape and compares it with the live API response before assertions run. If the response still contains the required fields, the test continues normally. If a field has been renamed but a replacement field appears, the test logs a `SCHEMA_DRIFT` warning, updates the in-memory schema expectation, and continues instead of failing immediately. If required fields disappear with no usable replacement, the test logs `SCHEMA_BREAK` and fails clearly. This is useful because small API response changes can be detected and reported without hiding genuine breaking changes.

@@ -453,7 +453,7 @@ footer span { color: #475569; }
   <div class="hero-meta">
     <div class="meta-item">
       <div class="meta-label">Generated</div>
-      <div class="meta-value">27 May 2026 · 19:26</div>
+      <div class="meta-value">28 May 2026 · 20:52</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Model</div>
@@ -524,34 +524,58 @@ footer span { color: #475569; }
       <div class="gauges-row">
         <div class="gauge-item">
           
+    <svg width="90" height="90" viewBox="0 0 90 90">
+      <circle cx="45" cy="45" r="36" fill="none" stroke="#1e293b" stroke-width="8"/>
+      <circle cx="45" cy="45" r="36" fill="none" stroke="#3b82f6" stroke-width="8"
+              stroke-dasharray="8.4 217.8"
+              stroke-linecap="round"
+              transform="rotate(-90 45 45)"
+              style="filter: drop-shadow(0 0 4px #3b82f6)"/>
+      <text x="45" y="49" text-anchor="middle" fill="white"
+            font-size="11" font-family="monospace" font-weight="bold">
+        19ms
+      </text>
+    </svg>
           <div class="gauge-label">p95 Latency<br><span class="gauge-limit">limit 500ms</span></div>
         </div>
         <div class="gauge-item">
           
+    <svg width="90" height="90" viewBox="0 0 90 90">
+      <circle cx="45" cy="45" r="36" fill="none" stroke="#1e293b" stroke-width="8"/>
+      <circle cx="45" cy="45" r="36" fill="none" stroke="#a855f7" stroke-width="8"
+              stroke-dasharray="10.5 215.7"
+              stroke-linecap="round"
+              transform="rotate(-90 45 45)"
+              style="filter: drop-shadow(0 0 4px #a855f7)"/>
+      <text x="45" y="49" text-anchor="middle" fill="white"
+            font-size="11" font-family="monospace" font-weight="bold">
+        19ms
+      </text>
+    </svg>
           <div class="gauge-label">TTFB p95<br><span class="gauge-limit">limit 400ms</span></div>
         </div>
         <div class="stat-cluster">
           <div class="stat-item">
             <div class="stat-val" style="color:#3b82f6">
-              —
+              7282
             </div>
             <div class="stat-key">Requests</div>
           </div>
           <div class="stat-item">
             <div class="stat-val" style="color:#a855f7">
-              —
+              24.2
             </div>
             <div class="stat-key">Avg RPS</div>
           </div>
           <div class="stat-item">
             <div class="stat-val" style="color:#22c55e">
-              —
+              0.00%
             </div>
             <div class="stat-key">Error Rate</div>
           </div>
           <div class="stat-item">
             <div class="stat-val" style="color:#f59e0b">
-              —
+              50
             </div>
             <div class="stat-key">Peak VUs</div>
           </div>
@@ -560,9 +584,45 @@ footer span { color: #475569; }
 
       <div class="bars-section">
         
+    <div class="pbar-wrap">
+      <div class="pbar-header">
+        <span class="pbar-label">p95 Latency</span>
+        <span class="pbar-vals" style="color:#22c55e">18.5 ms
+          <span class="pbar-limit">/ 500 ms</span>
+        </span>
+      </div>
+      <div class="pbar-track">
+        <div class="pbar-fill" style="width:3.7%; background:#22c55e;
+             box-shadow: 0 0 8px rgba(34,197,94,0.4)"></div>
+      </div>
+    </div>
         
         
+    <div class="pbar-wrap">
+      <div class="pbar-header">
+        <span class="pbar-label">Max Latency</span>
+        <span class="pbar-vals" style="color:#22c55e">55.5 ms
+          <span class="pbar-limit">/ 500 ms</span>
+        </span>
+      </div>
+      <div class="pbar-track">
+        <div class="pbar-fill" style="width:11.1%; background:#22c55e;
+             box-shadow: 0 0 8px rgba(34,197,94,0.4)"></div>
+      </div>
+    </div>
         
+    <div class="pbar-wrap">
+      <div class="pbar-header">
+        <span class="pbar-label">TTFB p95</span>
+        <span class="pbar-vals" style="color:#22c55e">18.5 ms
+          <span class="pbar-limit">/ 400 ms</span>
+        </span>
+      </div>
+      <div class="pbar-track">
+        <div class="pbar-fill" style="width:4.6%; background:#22c55e;
+             box-shadow: 0 0 8px rgba(34,197,94,0.4)"></div>
+      </div>
+    </div>
         
     <div class="pbar-wrap">
       <div class="pbar-header">
@@ -577,6 +637,18 @@ footer span { color: #475569; }
       </div>
     </div>
         
+    <div class="pbar-wrap">
+      <div class="pbar-header">
+        <span class="pbar-label">RPS vs target</span>
+        <span class="pbar-vals" style="color:#f59e0b">24.2
+          <span class="pbar-limit">/ 50</span>
+        </span>
+      </div>
+      <div class="pbar-track">
+        <div class="pbar-fill" style="width:51.5%; background:#f59e0b;
+             box-shadow: 0 0 8px rgba(245,158,11,0.4)"></div>
+      </div>
+    </div>
       </div>
 
       
@@ -656,13 +728,13 @@ footer span { color: #475569; }
     <svg width="90" height="90" viewBox="0 0 90 90">
       <circle cx="45" cy="45" r="36" fill="none" stroke="#1e293b" stroke-width="8"/>
       <circle cx="45" cy="45" r="36" fill="none" stroke="#f59e0b" stroke-width="8"
-              stroke-dasharray="23.2 203.0"
+              stroke-dasharray="11.6 214.6"
               stroke-linecap="round"
               transform="rotate(-90 45 45)"
               style="filter: drop-shadow(0 0 4px #f59e0b)"/>
       <text x="45" y="49" text-anchor="middle" fill="white"
             font-size="11" font-family="monospace" font-weight="bold">
-        51ms
+        26ms
       </text>
     </svg>
           <div class="gauge-label">p95 Latency<br><span class="gauge-limit">limit 500ms</span></div>
@@ -672,13 +744,13 @@ footer span { color: #475569; }
     <svg width="90" height="90" viewBox="0 0 90 90">
       <circle cx="45" cy="45" r="36" fill="none" stroke="#1e293b" stroke-width="8"/>
       <circle cx="45" cy="45" r="36" fill="none" stroke="#a855f7" stroke-width="8"
-              stroke-dasharray="29.0 197.2"
+              stroke-dasharray="14.5 211.7"
               stroke-linecap="round"
               transform="rotate(-90 45 45)"
               style="filter: drop-shadow(0 0 4px #a855f7)"/>
       <text x="45" y="49" text-anchor="middle" fill="white"
             font-size="11" font-family="monospace" font-weight="bold">
-        51ms
+        26ms
       </text>
     </svg>
           <div class="gauge-label">TTFB p95<br><span class="gauge-limit">limit 400ms</span></div>
@@ -686,13 +758,13 @@ footer span { color: #475569; }
         <div class="stat-cluster">
           <div class="stat-item">
             <div class="stat-val" style="color:#f59e0b">
-              6673
+              6717
             </div>
             <div class="stat-key">Requests</div>
           </div>
           <div class="stat-item">
             <div class="stat-val" style="color:#a855f7">
-              55.2
+              55.6
             </div>
             <div class="stat-key">Avg RPS</div>
           </div>
@@ -716,12 +788,12 @@ footer span { color: #475569; }
     <div class="pbar-wrap">
       <div class="pbar-header">
         <span class="pbar-label">p95 Latency</span>
-        <span class="pbar-vals" style="color:#22c55e">51.3 ms
+        <span class="pbar-vals" style="color:#22c55e">25.7 ms
           <span class="pbar-limit">/ 500 ms</span>
         </span>
       </div>
       <div class="pbar-track">
-        <div class="pbar-fill" style="width:10.3%; background:#22c55e;
+        <div class="pbar-fill" style="width:5.1%; background:#22c55e;
              box-shadow: 0 0 8px rgba(34,197,94,0.4)"></div>
       </div>
     </div>
@@ -730,12 +802,12 @@ footer span { color: #475569; }
     <div class="pbar-wrap">
       <div class="pbar-header">
         <span class="pbar-label">Max Latency</span>
-        <span class="pbar-vals" style="color:#22c55e">127.2 ms
+        <span class="pbar-vals" style="color:#22c55e">77.0 ms
           <span class="pbar-limit">/ 500 ms</span>
         </span>
       </div>
       <div class="pbar-track">
-        <div class="pbar-fill" style="width:25.4%; background:#22c55e;
+        <div class="pbar-fill" style="width:15.4%; background:#22c55e;
              box-shadow: 0 0 8px rgba(34,197,94,0.4)"></div>
       </div>
     </div>
@@ -743,12 +815,12 @@ footer span { color: #475569; }
     <div class="pbar-wrap">
       <div class="pbar-header">
         <span class="pbar-label">TTFB p95</span>
-        <span class="pbar-vals" style="color:#22c55e">51.3 ms
+        <span class="pbar-vals" style="color:#22c55e">25.7 ms
           <span class="pbar-limit">/ 400 ms</span>
         </span>
       </div>
       <div class="pbar-track">
-        <div class="pbar-fill" style="width:12.8%; background:#22c55e;
+        <div class="pbar-fill" style="width:6.4%; background:#22c55e;
              box-shadow: 0 0 8px rgba(34,197,94,0.4)"></div>
       </div>
     </div>
@@ -769,7 +841,7 @@ footer span { color: #475569; }
     <div class="pbar-wrap">
       <div class="pbar-header">
         <span class="pbar-label">RPS vs target</span>
-        <span class="pbar-vals" style="color:#22c55e">55.2
+        <span class="pbar-vals" style="color:#22c55e">55.6
           <span class="pbar-limit">/ 50</span>
         </span>
       </div>

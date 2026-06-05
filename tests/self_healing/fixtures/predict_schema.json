@@ -1,0 +1,4 @@
+{
+  "fields": ["confidence", "label"],
+  "required": ["confidence", "label"]
+}
