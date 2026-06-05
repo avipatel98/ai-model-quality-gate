@@ -5,8 +5,8 @@ Endpoints
 ---------
 GET  /health       Liveness check
 POST /predict      Returns label + confidence for a given task text
-GET  /metrics      Model performance metrics (complete tier)
-GET  /prometheus   Prometheus-format metrics (stretch tier)
+GET  /metrics      Model performance metrics
+GET  /prometheus   Prometheus-format metrics
 """
 
 import json
@@ -85,7 +85,7 @@ def predict(request: PredictRequest) -> PredictResponse:
 
 @app.get("/metrics")
 def metrics() -> dict:
-    """Return cached model evaluation metrics (complete tier)."""
+    """Return cached model evaluation metrics."""
     if not METRICS_PATH.exists():
         raise HTTPException(status_code=503, detail="Metrics not yet computed. Run src/train.py.")
     return json.loads(METRICS_PATH.read_text())

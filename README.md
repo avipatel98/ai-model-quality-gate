@@ -48,7 +48,7 @@ blocks. Schema change → tests heal. Flaky server → retries kick in.
 | Contract tests | pytest · Pydantic v2 |
 | Performance tests | K6 v2 |
 | Self-healing | Python · pytest · unittest.mock |
-| CI/CD | GitHub Actions *(complete tier)* |
+| CI/CD | GitHub Actions |
 
 ---
 
@@ -65,7 +65,7 @@ capstone project/
 │       ├── pipeline.joblib      # Serialised TF-IDF + LR pipeline
 │       ├── classes.json         # Label order used by the API
 │       ├── metrics.json         # F1, accuracy, precision, recall
-│       └── confusion_matrix.png # Confusion matrix (complete tier)
+│       └── confusion_matrix.png # Confusion matrix
 ├── tests/
 │   ├── conftest.py              # Shared TestClient fixture
 │   ├── test_contract.py         # 27 Pydantic contract tests
@@ -241,7 +241,7 @@ GenuineFailureError: all 4 attempts failed — server is consistently failing
 
 ---
 
-## Docker (Stretch Tier)
+## Docker
 
 ### Run the full stack (API + Prometheus + Grafana)
 
@@ -270,7 +270,7 @@ p95 latency, and error rate.
 
 ---
 
-## Performance Optimisation (Stretch Tier)
+## Performance Optimisation
 
 ### ≥ 20% p95 improvement — proven
 
@@ -296,7 +296,7 @@ Run 2  25.7 ms  →  29.5 ms calibrated  (post-optimisation)
 
 ---
 
-## Confidence Band Tests (Stretch Tier)
+## Confidence Band Tests
 
 Tests that each known input's confidence score stays within ±0.10 of its
 baseline. Every check — pass or fail — is appended to `tests/confidence_audit.json`
