@@ -1,6 +1,6 @@
 # AI Model Quality Gate — Capstone Project
 
-[![CI](https://github.com/YOUR_USERNAME/ai-model-quality-gate/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/ai-model-quality-gate/actions/workflows/ci.yml)
+[![CI](https://github.com/avipatel98/ai-model-quality-gate/actions/workflows/ci.yml/badge.svg)](https://github.com/avipatel98/ai-model-quality-gate/actions/workflows/ci.yml)
 
 An end-to-end ML testing pipeline that mirrors a real MLOps production workflow.
 A text classifier is trained, exposed as a REST API, stress-tested with K6, and
