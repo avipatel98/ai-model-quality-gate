@@ -1,0 +1,47 @@
+services:
+
+  # ── Task Priority Classifier API ──────────────────────────────────────────
+  api:
+    build: .
+    container_name: capstone_api
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # ── Prometheus — scrapes the API and receives K6 remote write ─────────────
+  prometheus:
+    image: prom/prometheus:v2.51.2
+    container_name: capstone_prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--web.enable-remote-write-receiver"   # K6 pushes metrics here
+      - "--storage.tsdb.retention.time=1h"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  # ── Grafana — pre-provisioned dashboard ───────────────────────────────────
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: capstone_grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+    restart: unless-stopped

@@ -1,0 +1,142 @@
+name: AI Model Quality Gate
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  # ── Job 1: Validate model ──────────────────────────────────────────────────
+  validate-model:
+    name: Train & Validate Model
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Train model and assert F1 ≥ 0.82
+        run: python src/train.py
+        # train.py exits with code 1 if F1 < 0.82 — blocks the pipeline
+
+      - name: Run data drift check
+        run: python src/data_drift.py
+
+      - name: Upload model artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-artifacts
+          path: |
+            src/model/pipeline.joblib
+            src/model/classes.json
+            src/model/metrics.json
+            src/model/confusion_matrix.png
+            src/model/drift_report.json
+
+  # ── Job 2: API contract tests ──────────────────────────────────────────────
+  test-api:
+    name: API Contract & Self-Healing Tests
+    runs-on: ubuntu-latest
+    needs: validate-model
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Download model artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: model-artifacts
+          path: src/model/
+
+      - name: Start API server
+        run: |
+          python -m uvicorn src.app:app --host 0.0.0.0 --port 8000 &
+          sleep 3
+          curl --fail http://localhost:8000/health
+
+      - name: Run contract tests
+        run: python -m pytest tests/test_contract.py -v
+
+      - name: Run self-healing tests
+        run: python -m pytest tests/test_self_healing.py -v
+
+  # ── Job 3: K6 performance tests ────────────────────────────────────────────
+  k6-performance:
+    name: K6 Performance Tests
+    runs-on: ubuntu-latest
+    needs: test-api
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install K6
+        run: |
+          sudo gpg -k
+          sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg \
+            --keyserver hkp://keyserver.ubuntu.com:80 \
+            --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] \
+            https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update && sudo apt-get install -y k6
+
+      - name: Download model artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: model-artifacts
+          path: src/model/
+
+      - name: Start API server
+        run: |
+          python -m uvicorn src.app:app --host 0.0.0.0 --port 8000 &
+          sleep 3
+          curl --fail http://localhost:8000/health
+
+      - name: K6 ramp-up test
+        run: |
+          mkdir -p k6/results
+          k6 run --out json=k6/results/ramp_up.json k6/ramp_up.js
+
+      - name: K6 spike test
+        run: k6 run --out json=k6/results/spike.json k6/spike.js
+
+      - name: K6 soak test (2-min CI smoke)
+        run: k6 run -e SOAK_DURATION=2m --out json=k6/results/soak.json k6/soak.js
+
+      - name: Calibrate thresholds
+        run: python k6/calibrate_thresholds.py
+
+      - name: Generate HTML report
+        run: python k6/generate_report.py
+
+      - name: Upload K6 results
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-results
+          path: k6/results/

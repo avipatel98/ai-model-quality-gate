@@ -1,0 +1,190 @@
+{
+  "avg_baseline_confidence": 0.5635,
+  "avg_ood_confidence": 0.4461,
+  "confidence_drop": 0.1173,
+  "ood_samples_below_0_50": 7,
+  "total_ood_samples": 10,
+  "baseline": [
+    {
+      "text": "Fix production database crash affecting all users",
+      "expected": "High",
+      "predicted": "High",
+      "confidence": 0.6563922899741915,
+      "correct": true
+    },
+    {
+      "text": "Write unit tests for the payment service layer",
+      "expected": "Medium",
+      "predicted": "Medium",
+      "confidence": 0.5848436450540356,
+      "correct": true
+    },
+    {
+      "text": "Read the latest JavaScript weekly newsletter",
+      "expected": "Low",
+      "predicted": "Low",
+      "confidence": 0.5918387892539718,
+      "correct": true
+    },
+    {
+      "text": "Deploy emergency security patch to auth service",
+      "expected": "High",
+      "predicted": "High",
+      "confidence": 0.43453162575902626,
+      "correct": true
+    },
+    {
+      "text": "Refactor config management to use environment vars",
+      "expected": "Medium",
+      "predicted": "Medium",
+      "confidence": 0.5479547770478734,
+      "correct": true
+    },
+    {
+      "text": "Watch conference talk on Rust memory safety",
+      "expected": "Low",
+      "predicted": "Low",
+      "confidence": 0.5652939206073313,
+      "correct": true
+    }
+  ],
+  "ood": [
+    {
+      "text": "\ud83d\udd25\ud83d\udea8 URGENT!!!! Fix this NOW!!!! \ud83d\udca5\ud83d\udca5\ud83d\udca5",
+      "description": "emoji-heavy \u2014 no real keywords",
+      "predicted": "High",
+      "confidence": 0.47804847068047346,
+      "confidence_drop": 0.0854,
+      "distribution": {
+        "High": 0.478,
+        "Low": 0.2795,
+        "Medium": 0.2425
+      },
+      "degraded": true
+    },
+    {
+      "text": "CRITICAL CRITICAL CRITICAL SYSTEM DOWN EVERYTHING IS BROKEN",
+      "description": "all-caps duplicate words",
+      "predicted": "High",
+      "confidence": 0.5350522690121171,
+      "confidence_drop": 0.0284,
+      "distribution": {
+        "High": 0.5351,
+        "Low": 0.2408,
+        "Medium": 0.2242
+      },
+      "degraded": false
+    },
+    {
+      "text": "Veuillez corriger le bug en production imm\u00e9diatement",
+      "description": "non-English (French)",
+      "predicted": "High",
+      "confidence": 0.5463928163332331,
+      "confidence_drop": 0.0171,
+      "distribution": {
+        "High": 0.5464,
+        "Low": 0.2336,
+        "Medium": 0.22
+      },
+      "degraded": false
+    },
+    {
+      "text": "Perform lumbar puncture on patient with suspected bacterial meningitis",
+      "description": "domain shift (medical)",
+      "predicted": "Low",
+      "confidence": 0.3990794352266546,
+      "confidence_drop": 0.1644,
+      "distribution": {
+        "High": 0.2932,
+        "Low": 0.3991,
+        "Medium": 0.3077
+      },
+      "degraded": true
+    },
+    {
+      "text": "xkcd banana thunderstorm purple seventeen grzmot fnord",
+      "description": "random nonsense words",
+      "predicted": "Low",
+      "confidence": 0.34052666007915783,
+      "confidence_drop": 0.2229,
+      "distribution": {
+        "High": 0.3371,
+        "Low": 0.3405,
+        "Medium": 0.3224
+      },
+      "degraded": true
+    },
+    {
+      "text": "Bug",
+      "description": "single word \u2014 very short",
+      "predicted": "High",
+      "confidence": 0.4158334435528342,
+      "confidence_drop": 0.1476,
+      "distribution": {
+        "High": 0.4158,
+        "Low": 0.3004,
+        "Medium": 0.2837
+      },
+      "degraded": true
+    },
+    {
+      "text": "Maybe do something at some point if possible",
+      "description": "vague / ambiguous \u2014 no signal words",
+      "predicted": "Low",
+      "confidence": 0.3787436585331478,
+      "confidence_drop": 0.1847,
+      "distribution": {
+        "High": 0.3624,
+        "Low": 0.3787,
+        "Medium": 0.2589
+      },
+      "degraded": true
+    },
+    {
+      "text": "Fix issue #4521 in v2.3.1 from PR #892 blocking release",
+      "description": "numeric / code-heavy",
+      "predicted": "High",
+      "confidence": 0.5198845564367794,
+      "confidence_drop": 0.0436,
+      "distribution": {
+        "High": 0.5199,
+        "Low": 0.2611,
+        "Medium": 0.219
+      },
+      "degraded": false
+    },
+    {
+      "text": "Please kindly read the critical production outage report when convenient",
+      "description": "polarity mismatch \u2014 Low words, High intent",
+      "predicted": "Low",
+      "confidence": 0.3954154941467068,
+      "confidence_drop": 0.1681,
+      "distribution": {
+        "High": 0.3523,
+        "Low": 0.3954,
+        "Medium": 0.2522
+      },
+      "degraded": true
+    },
+    {
+      "text": "After careful consideration of all the various factors involved and taking into account the feedback from numerous stakeholders across the organisation, it has been determined that we should perhaps at some future point explore the possibility of updating the documentation",
+      "description": "very long / verbose \u2014 diluted signal",
+      "predicted": "Low",
+      "confidence": 0.4524576808523283,
+      "confidence_drop": 0.111,
+      "distribution": {
+        "High": 0.2458,
+        "Low": 0.4525,
+        "Medium": 0.3017
+      },
+      "degraded": true
+    }
+  ],
+  "findings": [
+    "Non-English text (French) receives a prediction but confidence drops sharply \u2014 model has no multilingual capability.",
+    "Emoji-heavy and all-caps inputs are handled but with reduced confidence \u2014 the TF-IDF tokeniser strips symbols and normalises poorly.",
+    "Medical domain text maps to unexpected priority labels \u2014 the model has never seen medical vocabulary so it latches onto superficial cues.",
+    "Pure gibberish and very short inputs (single word) show the highest degradation \u2014 insufficient token overlap with training vocabulary.",
+    "Polarity mismatch inputs (Low-register words + High-priority intent) are frequently misclassified \u2014 the model is vocabulary-driven, not intent-driven."
+  ]
+}

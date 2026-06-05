@@ -1,0 +1,132 @@
+{
+  "title": "K6 + API — Task Priority Classifier",
+  "uid": "capstone-k6",
+  "schemaVersion": 39,
+  "refresh": "5s",
+  "time": { "from": "now-10m", "to": "now" },
+  "panels": [
+    {
+      "id": 1, "type": "timeseries", "gridPos": {"x":0,"y":0,"w":6,"h":8},
+      "title": "Virtual Users (VUs)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode":"fixed","fixedColor":"blue"},
+          "custom": {"lineWidth":2,"fillOpacity":15}
+        }
+      },
+      "options": {"tooltip":{"mode":"single"}},
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "k6_vus",
+        "legendFormat": "VUs"
+      }]
+    },
+    {
+      "id": 2, "type": "timeseries", "gridPos": {"x":6,"y":0,"w":6,"h":8},
+      "title": "Requests / Second",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode":"fixed","fixedColor":"green"},
+          "custom": {"lineWidth":2,"fillOpacity":15},
+          "unit": "reqps"
+        }
+      },
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "rate(k6_http_reqs_total[30s])",
+        "legendFormat": "RPS"
+      }]
+    },
+    {
+      "id": 3, "type": "timeseries", "gridPos": {"x":12,"y":0,"w":6,"h":8},
+      "title": "p95 Latency",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode":"fixed","fixedColor":"orange"},
+          "custom": {"lineWidth":2,"fillOpacity":15},
+          "unit": "ms",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color":"green","value":null},
+              {"color":"yellow","value":250},
+              {"color":"red","value":500}
+            ]
+          }
+        }
+      },
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "k6_http_req_duration{quantile=\"0.95\"}",
+        "legendFormat": "p95 ms"
+      }]
+    },
+    {
+      "id": 4, "type": "timeseries", "gridPos": {"x":18,"y":0,"w":6,"h":8},
+      "title": "Error Rate",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode":"fixed","fixedColor":"red"},
+          "custom": {"lineWidth":2,"fillOpacity":15},
+          "unit": "percentunit",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color":"green","value":null},
+              {"color":"red","value":0.01}
+            ]
+          }
+        }
+      },
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "rate(k6_http_req_failed_total[30s]) / rate(k6_http_reqs_total[30s])",
+        "legendFormat": "Error %"
+      }]
+    },
+    {
+      "id": 5, "type": "stat", "gridPos": {"x":0,"y":8,"w":4,"h":4},
+      "title": "Total Requests",
+      "fieldConfig": {"defaults":{"color":{"mode":"fixed","fixedColor":"blue"}}},
+      "options": {"reduceOptions":{"calcs":["lastNotNull"]}},
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "k6_http_reqs_total",
+        "legendFormat": "Total"
+      }]
+    },
+    {
+      "id": 6, "type": "stat", "gridPos": {"x":4,"y":8,"w":4,"h":4},
+      "title": "Peak VUs",
+      "fieldConfig": {"defaults":{"color":{"mode":"fixed","fixedColor":"purple"}}},
+      "options": {"reduceOptions":{"calcs":["max"]}},
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "k6_vus",
+        "legendFormat": "Peak"
+      }]
+    },
+    {
+      "id": 7, "type": "stat", "gridPos": {"x":8,"y":8,"w":4,"h":4},
+      "title": "Max Latency",
+      "fieldConfig": {"defaults":{"unit":"ms","color":{"mode":"fixed","fixedColor":"orange"}}},
+      "options": {"reduceOptions":{"calcs":["max"]}},
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "k6_http_req_duration{quantile=\"0.99\"}",
+        "legendFormat": "p99"
+      }]
+    },
+    {
+      "id": 8, "type": "stat", "gridPos": {"x":12,"y":8,"w":4,"h":4},
+      "title": "API Prediction Requests",
+      "fieldConfig": {"defaults":{"color":{"mode":"fixed","fixedColor":"green"}}},
+      "options": {"reduceOptions":{"calcs":["lastNotNull"]}},
+      "targets": [{
+        "datasource": "Prometheus",
+        "expr": "predict_requests_total",
+        "legendFormat": "Predictions"
+      }]
+    }
+  ]
+}

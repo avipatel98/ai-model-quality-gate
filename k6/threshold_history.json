@@ -1,0 +1,36 @@
+{
+  "runs": [
+    {
+      "run": 1,
+      "timestamp": "2026-05-27T19:33:04",
+      "worst_p95_ms": 51.3,
+      "calibrated_p95_ms": 59.0,
+      "per_scenario": {
+        "spike": {
+          "p95_ms": 51.3,
+          "rps": 55.25
+        },
+        "soak": {
+          "p95_ms": 16.89,
+          "rps": 34.74
+        }
+      }
+    },
+    {
+      "run": 2,
+      "timestamp": "2026-05-27T19:38:48",
+      "worst_p95_ms": 25.69,
+      "calibrated_p95_ms": 29.5,
+      "per_scenario": {
+        "spike": {
+          "p95_ms": 51.3,
+          "rps": 55.25
+        },
+        "soak": {
+          "p95_ms": 16.89,
+          "rps": 34.74
+        }
+      }
+    }
+  ]
+}

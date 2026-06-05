@@ -1,0 +1,11 @@
+{
+  "accuracy": 0.878,
+  "f1_macro": 0.8787,
+  "f1_weighted": 0.88,
+  "precision_macro": 0.8929,
+  "recall_macro": 0.8791,
+  "threshold": 0.82,
+  "passed": true,
+  "train_samples": 161,
+  "test_samples": 41
+}

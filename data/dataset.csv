@@ -1,0 +1,203 @@
+Task,Priority
+Restore corrupted index in Elasticsearch cluster,High
+Explore new notebook features in JupyterLab 4,Low
+Write load tests for the search endpoint,Medium
+Review archived Slack threads for useful historical context,Low
+Write runbook for common on-call incident scenarios,Medium
+Add Swagger UI to the internal developer portal,Medium
+Fix broken CI/CD pipeline that is blocking all team deployments,High
+Resolve payment gateway timeout causing failed transactions,High
+Fix missing transaction rollback causing partial order creation,High
+Prod alert: health check endpoint returning unhealthy for 10 minutes,High
+Watch conference talk on Rust memory safety,Low
+Watch overview video on WebAssembly capabilities,Low
+Review accessibility audit results and create follow-up tickets,Medium
+Improve logging across the order fulfilment service,Medium
+Explore available plugins for the team project board,Low
+Explore new terminal emulator options for productivity,Low
+Resolve stuck deployment preventing any new releases,High
+Implement graceful shutdown handling for all microservices,Medium
+On-call alert: CPU usage at 100% on all app servers for 15 minutes,High
+Critical memory leak in the main API server needs immediate attention,High
+Skim through new design system documentation,Low
+Emergency GDPR data deletion request must complete by midnight,High
+Investigate and resolve runaway batch job consuming all memory,High
+Set up branch protection rules on the main repository,Medium
+Explore Obsidian plugins for personal knowledge management,Low
+Explore differences between gRPC and REST for internal APIs,Low
+Investigate and patch open redirect vulnerability on login page,High
+Add missing database indexes to the orders table,Medium
+Production server is down — restore service immediately,High
+Organise personal finance spreadsheet for the month,Low
+Database disk usage at 98% — prevent imminent write failure,High
+Write architecture decision record for PostgreSQL over MongoDB,Medium
+SSL certificate expired on main domain and users are seeing warnings,High
+Critical: mobile push notifications stopped delivering since last deploy,High
+Watch demo video for a new API testing tool,Low
+Write unit tests for the payment service layer,Medium
+Fix incorrect user role assignment after last auth refactor,High
+Check if the team wiki has documentation on deploy scripts,Low
+Urgent: third-party fraud detection service returning 503 errors,High
+Look into contributing to an open-source project,Low
+Update README in personal sandbox repository,Low
+Emergency: export functionality returning corrupt ZIP files,High
+Database replication lag exceeding 60 seconds in prod,High
+Add personal project ideas to the backlog document,Low
+Add a book to the reading list on distributed systems,Low
+Fix typo in critical email template sent to all new customers,High
+Add service mesh observability for inter-service calls,Medium
+Add health check endpoint to the notification service,Medium
+Review and merge open pull requests from last sprint,Medium
+Implement search filters on the customer dashboard,Medium
+Review architecture design document for the new reporting module,Medium
+Upgrade Node.js runtime from version 16 to 20 LTS,Medium
+Set up pre-commit hooks for linting and code formatting,Medium
+Browse job postings to benchmark current salary expectations,Low
+Fix incorrect pricing shown after recent currency conversion change,High
+Fix production database crash affecting all users,High
+Watch webinar recording on zero-trust network architecture,Low
+Watch overview of the new GitHub Projects interface,Low
+Core authentication service throwing NullPointerException on every request,High
+Update API documentation with new endpoint examples,Medium
+Add multi-language support for API error messages,Medium
+Fix uncaught exception crashing the background job processor,High
+Read about emerging trends in AI-assisted code review,Low
+Explore options for automating personal expense tracking,Low
+Organise bookmarks folder for developer resources,Low
+Refactor database queries to use prepared statements,Medium
+Update CORS policy to restrict allowed origins,Medium
+Fix crash on mobile app startup affecting iOS 17 users,High
+Resolve deadlock in order processing system,High
+Read summary of last month architecture meeting,Low
+Reorganise local development environment folder structure,Low
+Organise desktop icons and clean up downloads folder,Low
+Investigate and resolve unexpected latency spike on GraphQL gateway,High
+Migrate user avatars from local disk to cloud storage,Medium
+Review notifications and clean up email subscriptions,Low
+Fix admin dashboard inaccessible after permissions migration,High
+Improve caching strategy for the product catalogue API,Medium
+Add rate limiting to the public API endpoints,Medium
+Production alert: metrics ingestion pipeline has stopped processing,High
+Add a new template to the personal document library,Low
+Review vendor security questionnaire and respond,Medium
+Add request ID propagation across all microservices,Medium
+Update Dockerfile to use the official slim base image,Medium
+Add structured JSON logging to all backend services,Medium
+Review saved articles on microservices design patterns,Low
+Resolve message queue backlog growing without bound,High
+Performance degradation — search latency jumped from 80ms to 4 seconds,High
+Explore new features in the latest Python 3.12 release,Low
+Implement feature flag system for gradual rollouts,Medium
+Research best practices for writing technical blog posts,Low
+Resolve broken API versioning causing mobile app to crash on launch,High
+Add dark mode support to the dashboard UI,Medium
+Explore Figma for UI mockup prototyping,Low
+Migrate scheduled jobs from cron to a proper queue,Medium
+Look into a new linting rule being discussed in team Slack,Low
+Improve error messages returned by the search API,Medium
+Fix corrupted migration that wiped user preferences table,High
+Look at open issues on a personal GitHub side project,Low
+Review sprint backlog and update ticket estimates,Medium
+Emergency patch: SQL injection vulnerability in search endpoint,High
+Update personal dotfiles repository with new shell aliases,Low
+Investigate and fix data corruption in user records,High
+Address compliance audit finding due by end of day,High
+Read a chapter from the Staff Engineer book,Low
+Add audit logging for sensitive data access events,Medium
+Implement RBAC permissions for the internal admin portal,Medium
+Schedule quarterly dependency vulnerability scan,Medium
+Update Kubernetes resource limits based on profiling results,Medium
+Watch a documentary on the history of the internet,Low
+Read the latest JavaScript weekly newsletter,Low
+Review old feature branch and decide whether to close it,Low
+Migrate secrets from .env files to HashiCorp Vault,Medium
+Fix broken export feature causing data loss for customers,High
+Restore access to reporting service used by finance team daily,High
+Browse Hacker News for interesting open-source projects,Low
+Browse new UI component libraries for future consideration,Low
+Update personal bio on the company internal wiki,Low
+Refactor the notification service to support pluggable providers,Medium
+Write acceptance criteria for the upcoming reporting feature,Medium
+Patch critical XSS vulnerability found in penetration test,High
+Set up staging environment for the QA team,Medium
+Write integration tests for the notification service,Medium
+Fix race condition causing duplicate charge transactions,High
+Implement email verification for new user sign-ups,Medium
+Research alternatives to our current task tracker tool,Low
+Schedule team retrospective for the end of sprint,Medium
+Refactor config management to use environment variables,Medium
+Refactor authentication module to reduce code duplication,Medium
+Resolve thread exhaustion in the HTTP server connection pool,High
+Write a Postman collection for the payments API,Medium
+Implement soft delete for user accounts,Medium
+Fix session tokens not being invalidated after password change,High
+Set up monitoring alerts for memory usage on app servers,Medium
+Fix intermittent test flakiness in the checkout test suite,Medium
+Organise photos from last team offsite event,Low
+Update avatar on GitHub profile,Low
+Hotfix: tax calculation returning negative values at checkout,High
+Check if there are open-source alternatives to Datadog,Low
+Read company all-hands meeting recording from last month,Low
+Add pagination to the admin user listing page,Medium
+Fix broken link in password reset flow stopping new registrations,High
+Browse Reddit threads on performance optimisation tips,Low
+Investigate spike in 4xx errors on checkout endpoint,High
+Fix broken OAuth callback causing third-party login failures,High
+Add OpenAPI spec for the new inventory endpoints,Medium
+Upgrade third-party SDK from version 3.x to 4.x,Medium
+Follow up on a LinkedIn connection from last conference,Low
+Restore deleted production data from backup immediately,High
+Add retry logic to the email dispatch service,Medium
+Fix broken password reset emails not being sent to users,High
+Update personal learning journal with this week's notes,Low
+Set up code coverage reporting in the CI pipeline,Medium
+Rollback failed deployment that is breaking login for all users,High
+Update team documentation for the new onboarding process,Medium
+Watch demo of a new observability platform,Low
+Set up automated database backups on a daily schedule,Medium
+Improve test coverage for the billing module to 80 percent,Medium
+Resolve dependency conflict blocking critical security update,High
+Review and update privacy policy for new data regulations,Medium
+Browse available VS Code themes for a UI refresh,Low
+Read article on the CAP theorem for distributed systems,Low
+Implement two-factor authentication for admin accounts,Medium
+Review notes from last team knowledge-sharing session,Low
+Resolve billing discrepancy causing overcharges on subscriptions,High
+Read changelog for the latest version of our monitoring tool,Low
+Add export to CSV feature on the reports page,Medium
+Research mechanical keyboard options for ergonomic setup,Low
+Emergency: public-facing API docs returning 404 for all routes,High
+Deploy emergency security patch to authentication service,High
+Migrate legacy REST endpoints to the new GraphQL schema,Medium
+Research keyboard shortcuts for the new IDE plugin,Low
+Add password strength meter to the change-password screen,Medium
+Resolve broken asset pipeline causing blank screens for users,High
+Implement webhook retry mechanism with exponential backoff,Medium
+Browse changelog of a library used in a side project,Low
+Check availability for next quarter team hackathon,Low
+Resolve intermittent data loss in event streaming pipeline,High
+Watch tutorial on advanced Git branching strategies,Low
+Add items to the personal tech radar document,Low
+Organise code snippets in the personal Notion workspace,Low
+Add compression middleware to reduce API response sizes,Medium
+Resolve scheduler bug sending duplicate appointment reminders,High
+Fix container image failing to start in production Kubernetes cluster,High
+Outage on Redis cluster — all sessions invalidated,High
+Customer data exposed due to misconfigured S3 bucket,High
+API returning 500 errors for 30 percent of requests in production,High
+Consolidate duplicate helper utilities across services,Medium
+Read release notes for the latest Kubernetes version,Low
+Fix broken webhook causing missed payments from Stripe,High
+Read blog post comparing different ORMs for Python,Low
+Read introduction to eBPF for Linux observability,Low
+Look into free online courses for machine learning basics,Low
+Investigate and stop active DDoS attack on API gateway,High
+Watch a talk on functional programming in JavaScript,Low
+Investigate abnormal spike in user-reported login failures,High
+Investigate memory growth pattern that is causing nightly OOM kills,High
+Production: cache invalidation bug serving stale prices to customers,High
+Add input validation to the user registration form,Medium
+Update wishlist of developer tools for budget planning,Low
+Patch zero-day vulnerability disclosed by security team,High
+Production deploy failed halfway and database is in inconsistent state,High
+Review draft of the quarterly engineering blog post,Low
